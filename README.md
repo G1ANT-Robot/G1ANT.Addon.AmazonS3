@@ -8,7 +8,7 @@ See more information at [AWS access key best practices](https://docs.aws.amazon.
 Then prepare credential file in format described below:
 
 ```
-[test]
+[profile_name]
 aws_access_key_id = XXXXXXXXXXXXXXXXXX
 aws_secret_access_key = YYYYYYYYYYYYYYYYYYYYYYY
 ```
