@@ -17,7 +17,7 @@ and save into local file
 **Simple usage** 
 
 ```
-amazons3.init profilename ‴test‴ credentialfilename ‴c:\test\aws.txt‴ regionendpoint ‴eu-central-1‴
+amazons3.init profilename ‴profile_name‴ credentialfilename ‴c:\test\aws.txt‴ regionendpoint ‴eu-central-1‴
 
 amazons3.createbucket bucketname ‴g1ant-addon-test‴
 
