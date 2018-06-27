@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using G1ANT.Language;
 
+
 namespace G1ANT.Addon.AmazonS3
 {
     [Command(Name = "amazons3.listobjects", Tooltip = "List bucket content")]
@@ -29,9 +30,10 @@ namespace G1ANT.Addon.AmazonS3
                 List<String> keys = S3Settings.GetInstance().awsS3.ListingObjects(arguments.bucketName.Value);
                 foreach (string key in keys)
                 {
-                    result.Value.Add(key);
+                    //result.AddItem(new TextStructure(key));
                 }
-                Scripter.Variables.SetVariableValue(arguments.Result.Value, result);
+                String flatStr = string.Join(";", keys.ToArray());
+                Scripter.Variables.SetVariableValue(arguments.Result.Value, new TextStructure(flatStr));
             }
             catch (Exception exc)
             {
