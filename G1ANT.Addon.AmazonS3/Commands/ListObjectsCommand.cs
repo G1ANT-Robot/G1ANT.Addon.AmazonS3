@@ -27,15 +27,16 @@ namespace G1ANT.Addon.AmazonS3
             try
             {
                 List<String> keys = S3Settings.GetInstance().awsS3.ListingObjects(arguments.bucketName.Value);
-                /*
                 ListStructure result = new ListStructure(new List<object>());
-                foreach (string key in keys)
+                if (keys != null)
                 {
-                    result.AddItem(new TextStructure(key));
+                    foreach (string key in keys)
+                    {
+                        result.AddItem(new TextStructure(key));
+                    }
                 }
-                */
-                String flatStr = string.Join(";", keys.ToArray());
-                Scripter.Variables.SetVariableValue(arguments.Result.Value, new TextStructure(flatStr));
+                //String flatStr = string.Join(";", keys.ToArray());
+                Scripter.Variables.SetVariableValue(arguments.Result.Value, result);
             }
             catch (Exception exc)
             {
